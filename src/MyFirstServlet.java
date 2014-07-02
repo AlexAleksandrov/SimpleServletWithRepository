@@ -2,7 +2,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -29,15 +28,7 @@ public class MyFirstServlet extends HttpServlet {
         System.out.println("Hello Servlet");
         response.setContentType("text/html");
         String userName = request.getParameter("userName");
-
-        HttpSession session = request.getSession();
-        if(userName != null && !userName.isEmpty()){
-            session.setAttribute("savedUserName",userName);
-        }
-        String sessionName = (String)session.getAttribute("savedUserName");
-
         PrintWriter writer = response.getWriter();
-        writer.print("<b>Hello " + userName + " response<b>");
-        writer.println("<b>Your session name " + sessionName + " response<b>");
+        writer.print("<b>Hello " + userName + " response!11!!!<b>");
     }
 }
